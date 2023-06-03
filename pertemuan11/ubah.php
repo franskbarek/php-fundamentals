@@ -2,9 +2,10 @@
 
 require "helper.php";
 
+// get id onclicked
 $id = $_GET["id"];
 
-// function query fron helper
+// function query from helper
 $mahasiswa = query("SELECT * FROM mahasiswa WHERE id = $id");
 
 // cek apakah tombol submit telah ditekan
