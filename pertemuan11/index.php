@@ -46,7 +46,7 @@ $mahasiswa = query("select * from mahasiswa;");
     <td><?=$index?></td>
     <td>
         <a href="ubah.php?id=<?=$row["id"]?>">ubah</a> |
-        <a href="hapus.php?id=<?=$row["id"]?>" onclick="confirm('Yakin ingin menghapus item ?');">hapus</a>
+        <a href="hapus.php?id=<?=$row["id"]?>" onclick="return confirm('yakin?');">hapus</a>
     </td>
     <td>
         <img src="../assets/<?=$row["gambar"]?>" alt="" width="50px">
