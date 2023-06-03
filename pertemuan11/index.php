@@ -5,6 +5,11 @@ require "helper.php";
 // function query fron helper
 $mahasiswa = query("select * from mahasiswa;");
 
+// check search event
+if (isset($_POST["search"])) {
+    $mahasiswa = search($_POST["keyword"]);
+}
+
 ?>
 
 
@@ -25,7 +30,11 @@ $mahasiswa = query("select * from mahasiswa;");
     <br><br>
 
 
-
+    <form action="" method="post">
+        <input type="text" name="keyword" size="40" autofocus placeholder="Cari..." autocomplete="off">
+        <button type="submit" name="search">Cari</button>
+    </form>
+    <br>
 
 
     <table border="1" cellpadding="10" cellspace="0">

@@ -64,3 +64,12 @@ function updateData($data)
     return mysqli_affected_rows($conn);
 
 }
+
+// function search
+function search($keyword)
+{
+    $query = "SELECT * FROM mahasiswa WHERE nama LIKE '%$keyword%' OR nrp LIKE '%$keyword%' OR jurusan LIKE '%$keyword%' OR email LIKE '%$keyword%'";
+
+    return query($query);
+
+}
