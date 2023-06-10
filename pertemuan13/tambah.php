@@ -33,22 +33,36 @@ if (isset($_POST["submit"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah data mahasiswa</title>
     <style>
+        body{
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+            text-align: center;
+        }
+        ul{
+            display: flex;
+            flex-flow: column wrap;
+            align-items: flex-start;
+        }
         li{
             display: flex;
-            flex-direction: column;
-            width: 400px;
-
-        }
-        label{
-            margin-left: 10px;
+            flex-flow:column-reverse wrap;
+            align-items: baseline;
         }
         input{
+            display: flex;
+            order: -1;
             padding: 5px;
             margin: 10px 10px;
         }
         button{
-            font-size: medium;
-            padding: 8px;
+            height: 40px;
+            width: 190px;
+            order: -2;
+        }
+        #gambar{
+            background-color: orange;
+            width: 180px;
         }
     </style>
 </head>
@@ -76,10 +90,10 @@ if (isset($_POST["submit"])) {
             <li>
                 <label for="gambar">Gambar : </label>
                 <input type="file" name="gambar" id="gambar">
+                <button type="submit" name="submit">Tambah</button>
             </li>
-            <li>
-               <button type="submit" name="submit">Tambah data!</button>
-            </li>
+
+
         </ul>
     </form>
 </body>

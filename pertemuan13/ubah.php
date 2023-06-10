@@ -38,6 +38,38 @@ if (isset($_POST["submit"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubah data mahasiswa</title>
+    <style>
+        body{
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+            text-align: center;
+        }
+        ul{
+            display: flex;
+            flex-flow: column wrap;
+            align-items: flex-start;
+        }
+        li{
+            display: flex;
+            flex-flow:column-reverse wrap;
+            align-items: baseline;
+        }
+        input{
+            display: flex;
+            order: -1;
+            padding: 5px;
+            margin: 10px 10px;
+        }
+        button{
+            height: 40px;
+            width: 190px;
+            order: -2;
+        }
+        #gambar{
+            width: 179px;
+        }
+    </style>
 </head>
 <body>
     <h1>Ubah data mahasiswa</h1>
@@ -65,9 +97,7 @@ if (isset($_POST["submit"])) {
             <li>
                 <label for="gambar">Gambar : </label>
                 <input type="text" name="gambar" id="gambar" value="<?=$mhs["gambar"];?>">
-            </li>
-            <li>
-               <button type="submit" name="submit">Ubah data!</button>
+                <button type="submit" name="submit">Ubah</button>
             </li>
         </ul>
         <?php endforeach;?>

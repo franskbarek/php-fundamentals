@@ -21,20 +21,79 @@ if (isset($_POST["search"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman admin</title>
+    <style>
+        *{
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+        }
+        .header-title{
+            font-size: 40px;
+            display: flex;
+            text-align: center;
+            margin-bottom: 70px;
+
+        }
+        .container{
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .function-onheader{
+            display: flex;
+            flex-flow: row-reverse wrap;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .search{
+            padding: 8px;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+        }
+        .button-search{
+            font-size: 15px;
+            padding:10px 40px 10px 40px;
+            margin-right: 30vh;
+            border-radius: 20px;
+            border: 0;
+            background-color: gray;
+            color: white;
+        }
+        .button-search:hover{
+            color: orange;
+        }
+        .addData{
+            font-size: 15px;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            background-color: gray;
+            border-radius: 20px;
+        }
+        a{
+            color: inherit;
+            cursor: default;
+        }
+        a:hover{
+            color: orange;
+        }
+    </style>
 </head>
 <body>
+<div class="container">
 
-    <h1>Daftar mahasiswa</h1>
+    <h1 class="header-title">Daftar mahasiswa</h1>
 
-    <a href="tambah.php">Tambah data mahasiswa</a>
-    <br><br>
-
+<div class="function-onheader">
+    <a href="tambah.php" class="addData">+ Data Mahasiswa</a>
 
     <form action="" method="post">
-        <input type="text" name="keyword" size="30" placeholder="Cari..." autofocus autocomplete="off" style="padding:8px;font-size:medium;">
-        <button type="submit" name="search" style="padding:9px;font-style:italic;">Cari</button>
+        <input type="text" name="keyword" size="30" placeholder="Cari..." autofocus autocomplete="off" class="search">
+        <button type="submit" name="search" class="button-search">Cari</button>
     </form>
-    <br>
+</div>
 
 
     <table border="1" cellpadding="10" cellspace="0">
@@ -51,7 +110,7 @@ if (isset($_POST["search"])) {
 </tr>
 <?php $index = 1;?>
 <?php foreach ($mahasiswa as $row): ?>
-<tr>
+    <tr>
     <td><?=$index?></td>
     <td>
         <a href="ubah.php?id=<?=$row["id"]?>">ubah</a> |
@@ -68,9 +127,10 @@ if (isset($_POST["search"])) {
 <?php $index++;?>
 <?php endforeach;?>
 
-    </table>
+</table>
 
 
 
+</div>
 </body>
 </html>
