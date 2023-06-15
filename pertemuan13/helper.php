@@ -25,8 +25,11 @@ function addingData($data)
     $nama = htmlspecialchars($data["nama"]); //varchar
     $email = htmlspecialchars($data["email"]); //varchar
     $jurusan = htmlspecialchars($data["jurusan"]); //varchar
+
     $gambar = upload();
 
+    // var_dump($gambar);
+    // die;
     if (!$gambar) {
         return false;
     }
@@ -46,6 +49,8 @@ function upload()
     $ukuranFile = $_FILES["gambar"]["size"];
     $error = $_FILES["gambar"]["error"];
     $tmpName = $_FILES["gambar"]["tmp_name"];
+
+    var_dump($tmpName);
 
     // cek ketika gambar tidak di upload
     if ($error === 4) {
@@ -84,7 +89,13 @@ function upload()
 
     $namaFileBaru .= $ekstensiGambar;
 
-    move_uploaded_file($tmpName, '../assets/' . $namaFileBaru);
+    move_uploaded_file($tmpName, '..assets/' . $namaFileBaru);
+
+    // if (move_uploaded_file($tmpName, 'img/' . $namaFileBaru)) {
+    //     echo 'File berhasil diunggah.';
+    // } else {
+    //     echo 'Gagal mengunggah file.';
+    // }
 
     return $namaFileBaru;
 }
@@ -110,7 +121,7 @@ function updateData($data)
     $nama = htmlspecialchars($data["nama"]); //varchar
     $email = htmlspecialchars($data["email"]); //varchar
     $jurusan = htmlspecialchars($data["jurusan"]); //varchar
-    $gambar = htmlspecialchars($data["gambar"]); //varhar
+    $gambar = upload();
     $id = htmlspecialchars($data["id"]); //varhar
 
     mysqli_query($conn, "UPDATE mahasiswa SET nama = '$nama', nrp = $nrp,  jurusan = '$jurusan', email = '$email', gambar = '$gambar' WHERE id = $id");

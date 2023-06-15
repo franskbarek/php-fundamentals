@@ -4,6 +4,12 @@ require "helper.php";
 
 // cek apakah tombol submit telah ditekan
 if (isset($_POST["submit"])) {
+
+    // var_dump($_POST);
+
+    // var_dump($_FILES);
+    // die;
+
     // cek apakah data berhasil ditambahkan atau tidak
     if (addingData($_POST) > 0) {
         echo "

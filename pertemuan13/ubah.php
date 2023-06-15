@@ -67,14 +67,15 @@ if (isset($_POST["submit"])) {
             order: -2;
         }
         #gambar{
-            width: 179px;
+            background-color: orange;
+            width: 180px;
         }
     </style>
 </head>
 <body>
     <h1>Ubah data mahasiswa</h1>
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <?php foreach ($mahasiswa as $mhs): ?>
             <input type="hidden" name="id" value="<?=$mhs["id"];?>">
             <ul>
@@ -95,10 +96,13 @@ if (isset($_POST["submit"])) {
                 <input type="text" name="jurusan" id="jurusan" value="<?=$mhs["jurusan"];?>">
             </li>
             <li>
+                <input type="file" name="gambar" id="gambar">
+                <img src="../assets/<?=$mhs["gambar"];?>" alt="" style="width:98px;">
                 <label for="gambar">Gambar : </label>
-                <input type="text" name="gambar" id="gambar" value="<?=$mhs["gambar"];?>">
                 <button type="submit" name="submit">Ubah</button>
             </li>
+
+
         </ul>
         <?php endforeach;?>
     </form>
